@@ -29,6 +29,9 @@ body {
 .num,
 .operator,
 .equals,
-.clear {
+.clear,
+.operator,
+.backspace,
+.decimal {
     flex: 1;
 }
