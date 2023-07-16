@@ -28,10 +28,15 @@ clear_btn.addEventListener('click', function() {
     clear();
 })
 
+const backspace_btn = document.querySelector('.backspace');
+backspace_btn.addEventListener('click', function() {
+    single_backspace();
+});
+
 
 // Operating with keyboard
 window.addEventListener('keydown', function(e) {
-    const allowed_values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/']
+    const allowed_values = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0', '+', '-', '*', '/', '%', '.']
     if(allowed_values.includes(e.key)) {
         if(['NaN', 'Infinity'].includes(input_label.value)) {
             clear();
@@ -45,7 +50,11 @@ window.addEventListener('keydown', function(e) {
         key_pressed(e.key.toLowerCase());
         clear();
     } else if('Backspace' === e.key) {
+        key_pressed(e.key);
         single_backspace();
+    } else if('d' === e.key.toLowerCase()) {
+        key_pressed('00');
+        input_label.value += '00';
     }
     if('+' === e.key && e.shiftKey) {
         e.preventDefault();
@@ -62,6 +71,14 @@ document.addEventListener('keydown', function(event) {
 function result() {
     if(input_label.value != '') {
         try {
+            if(input_label.value.includes('%')) {
+                const parts = input_label.value.split('%');
+                if(parts.length === 2) {
+                    if(!isNaN(parseFloat(parts[0])) && !isNaN(parseFloat(parts[1]))) {
+                        input_label.value = eval(parseFloat(parts[0]) * parseFloat(parts[1]) / 100);
+                    }
+                }
+            }
             input_label.value = eval(input_label.value);
         } catch { 
             single_backspace();
