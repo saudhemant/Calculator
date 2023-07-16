@@ -2,9 +2,19 @@ html {
     font-size: 20px;
 }
 
-.main-container {
+html, body {
+    height: 100%;
+}
+
+body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main-container, .sub-container, button {
+    border-radius: .5rem;
 }
 
 .form-control {
@@ -21,14 +31,4 @@ html {
 .equals,
 .clear {
     flex: 1;
-    margin: .05rem;
-}
-
-button {
-    border-radius: 1rem;
-    height: 2rem;
-}
-
-.transition {
-    transition: border-top .5s ease-in-out;
 }
