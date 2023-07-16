@@ -17,6 +17,10 @@ body {
     border-radius: .5rem;
 }
 
+button {
+    margin: .1rem;
+}
+
 .form-control {
     pointer-events: none;
 }
@@ -30,8 +34,15 @@ body {
 .operator,
 .equals,
 .clear,
-.operator,
 .backspace,
 .decimal {
     flex: 1;
+}
+
+.operator,
+.equals,
+.clear,
+.backspace {
+    background-color: #212529;
+    color: #F8F9FA;
 }
