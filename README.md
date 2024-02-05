@@ -1,5 +1,5 @@
 # Calculator
-This will enable you to perform simple calculation operations.
+This will enable you to perform simple calculation operations
 
 ## Keyboard Inputs:
 ### Inputs: 1, 2, 3, 4, 5, 6, 7, 8, 9, 0
